@@ -71,22 +71,25 @@ nav.main a:hover::after{width:100%}
 .facts div{font-size:.84rem;color:var(--mute);line-height:1.35}
 .facts b{display:block;font-family:var(--head);font-size:1.7rem;font-stretch:85%;font-weight:800;color:var(--ink);line-height:1}
 .hero-visual{position:relative}
-.truck{clip-path:polygon(0 0,86% 0,100% 14%,100% 100%,0 100%);aspect-ratio:4/4.3;overflow:hidden;background:var(--ink)}
-.truck img{width:100%;height:100%;object-fit:cover;object-position:28% center;transform:scale(1.04);transition:transform 6s ease}
-.hero-visual:hover .truck img{transform:scale(1.1)}
-.truck-tag{position:absolute;top:22px;right:-14px;background:var(--ink);color:#fff;font-family:var(--head);font-stretch:110%;font-weight:700;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;padding:10px 16px;writing-mode:vertical-rl;transform:rotate(180deg)}
-.coupon{position:absolute;left:-46px;bottom:-40px;width:330px;background:#fff;color:var(--ink);padding:24px 26px 22px 34px;box-shadow:0 30px 60px -25px rgba(13,42,51,.45);
-  -webkit-mask:radial-gradient(circle 8px at 0 13px,transparent 97%,#000 100%) 0 0/100% 26px repeat-y;mask:radial-gradient(circle 8px at 0 13px,transparent 97%,#000 100%) 0 0/100% 26px repeat-y}
-.coupon::after{content:"";position:absolute;left:18px;top:14px;bottom:14px;border-left:2px dashed var(--line)}
-.coupon .ctag{font-family:var(--head);font-weight:700;font-stretch:112%;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--cyan-d)}
-.coupon h3{font-size:1.1rem;font-stretch:92%;margin:6px 0 12px;font-weight:800}
-.price-row{display:flex;align-items:flex-end;gap:14px}
-.price-row .now{font-family:var(--head);font-weight:900;font-stretch:75%;font-size:4.2rem;line-height:.8;color:var(--ink)}
-.price-row .now sup{font-size:1.6rem;vertical-align:top;position:relative;top:6px}
-.price-row .was{font-size:.82rem;color:var(--mute);line-height:1.3}
-.price-row .was s{font-weight:700;color:var(--ink)}
-.save{display:inline-block;background:var(--lime);font-family:var(--head);font-weight:800;font-size:.78rem;padding:3px 8px;margin-top:4px}
-.coupon p{font-size:.8rem;color:var(--mute);margin-top:14px;line-height:1.45}
+.mosaic{display:grid;grid-template-columns:1.1fr .9fr;grid-template-rows:1.15fr .85fr;gap:14px;height:600px;position:relative}
+.mosaic figure{overflow:hidden;position:relative;background:var(--ink)}
+.mosaic img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s ease}
+.mosaic figure:hover img{transform:scale(1.06)}
+.m-truck{grid-row:1/3}
+.m-truck img{object-position:30% center}
+.m-truck figcaption,.m-work figcaption{position:absolute;left:0;bottom:0;background:#fff;color:var(--ink);font-family:var(--head);font-stretch:110%;font-weight:700;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;padding:9px 14px}
+.m-work figcaption{left:auto;right:0;background:var(--ink);color:#fff}
+.m-price{background:var(--cyan);color:#fff;padding:24px 24px 22px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
+.m-price::before{content:"";position:absolute;right:-30px;top:-30px;width:150px;height:150px;background:repeating-linear-gradient(0deg,rgba(255,255,255,.22) 0 7px,transparent 7px 16px);transform:rotate(-12deg)}
+.m-price .pt{font-family:var(--head);font-weight:700;font-stretch:110%;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;position:relative}
+.m-price .pv{font-family:var(--head);font-weight:900;font-stretch:75%;font-size:4.3rem;white-space:nowrap;line-height:.8;color:var(--ink);position:relative;margin-top:10px}
+.m-price .pv sup{font-size:1.8rem;vertical-align:top;position:relative;top:8px}
+.m-price .pv small{display:inline-block;font-size:.95rem;vertical-align:middle;font-stretch:100%;font-weight:700;color:#fff;margin-left:6px}
+.m-price .pw{display:flex;align-items:center;gap:10px;font-size:.84rem;position:relative}
+.m-price .pw s{opacity:.85}
+.m-price .pw b{background:var(--lime);color:var(--ink);font-family:var(--head);font-weight:800;padding:3px 8px;font-size:.78rem}
+.grille{position:absolute;left:-28px;bottom:-28px;width:120px;height:120px;background:var(--lime);z-index:-1;-webkit-mask:repeating-linear-gradient(0deg,#000 0 6px,transparent 6px 13px);mask:repeating-linear-gradient(0deg,#000 0 6px,transparent 6px 13px);z-index:0}
+.mosaic{z-index:1}
 
 /* guarantee band */
 .band{background:var(--cyan);color:#fff;position:relative;overflow:hidden}
@@ -102,29 +105,43 @@ nav.main a:hover::after{width:100%}
 .band .btn{background:var(--ink);color:#fff}
 .band .btn:hover{background:#fff;color:var(--ink)}
 
-/* spec sheet */
-.spec{padding:110px 0}
-.spec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-bottom:50px;flex-wrap:wrap}
-.spec-head h2{font-size:clamp(2.2rem,4.6vw,3.8rem);font-stretch:82%;font-weight:900;text-transform:uppercase;max-width:640px;margin-top:14px}
-.spec-head h2 span{color:var(--cyan)}
-.spec-head p{max-width:380px;color:var(--mute)}
-.spec-grid{display:grid;grid-template-columns:1.35fr 1fr;border:1.5px solid var(--ink)}
-.checklist{padding:38px 40px;display:grid;grid-template-columns:1fr 1fr;gap:0 34px;border-right:1.5px solid var(--ink);align-content:start}
-.checklist h4,.receipt h4{grid-column:1/-1;font-stretch:112%;font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;margin-bottom:12px;display:flex;justify-content:space-between;color:var(--mute)}
-.ck{display:flex;align-items:center;gap:14px;min-height:62px;padding:8px 0;border-bottom:1px solid var(--line);font-weight:600;font-size:.97rem;line-height:1.35}
-.ck i{width:24px;height:24px;border:2px solid var(--ink);flex:none;position:relative}
-.ck i::after{content:"";position:absolute;left:6px;top:1px;width:7px;height:13px;border:solid var(--cyan-d);border-width:0 3px 3px 0;transform:rotate(45deg) scale(0);transition:transform .35s cubic-bezier(.5,1.8,.5,1)}
-.spec.on .ck i::after{transform:rotate(45deg) scale(1)}
-.receipt{padding:38px 40px;background:var(--paper);display:flex;flex-direction:column}
-.line{display:flex;align-items:baseline;gap:10px;padding:13px 0;border-bottom:1px dashed #bccac8;font-weight:600}
-.line .dots{flex:1}
-.line b{font-family:var(--head);font-weight:800;font-stretch:90%;font-size:1.2rem}
-.line.total{border-bottom:0;border-top:2px solid var(--ink);margin-top:10px;padding-top:18px}
-.line.total b{font-size:2rem;color:var(--cyan-d)}
-.fine{font-size:.82rem;color:var(--mute);margin-top:auto;padding-top:20px;display:grid;gap:6px}
-.fine span::before{content:"*";color:var(--cyan-d);font-weight:700;margin-right:6px}
+/* pricing + estimator */
+.spec{padding:120px 0;background:#fff;position:relative;overflow:hidden}
+.spec::before{content:"149";position:absolute;right:-2vw;top:40px;font-family:var(--head);font-weight:900;font-stretch:62%;font-size:min(34vw,460px);line-height:.8;color:var(--paper);z-index:0;letter-spacing:-.04em}
+.spec .wrap{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:start;position:relative;z-index:1}
+.spec h2{font-size:clamp(2.2rem,4.4vw,3.6rem);font-stretch:82%;font-weight:900;text-transform:uppercase;margin:14px 0 22px}
+.spec h2 span{color:var(--cyan)}
+.spec .intro{color:var(--ink-2);max-width:500px;margin-bottom:34px}
+.inc-title{font-family:var(--head);font-weight:700;font-stretch:112%;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--mute);margin-bottom:16px}
+.inc{display:flex;flex-wrap:wrap;gap:10px}
+.inc span{display:inline-flex;align-items:center;gap:9px;padding:10px 16px 10px 12px;border:1.5px solid var(--ink);font-weight:600;font-size:.9rem;background:#fff;transition:.25s}
+.inc span::before{content:"";width:16px;height:16px;border-radius:50%;background:var(--lime) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 8.3l2.6 2.5L12 5.4' fill='none' stroke='%230D2A33' stroke-width='2.2'/%3E%3C/svg%3E") center/100% no-repeat;flex:none}
+.inc span:hover{background:var(--ink);color:#fff}
+.est{background:var(--ink);color:#fff;padding:40px 40px 34px;position:relative;box-shadow:24px 24px 0 var(--lime)}
+.est-top{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #2c5560;padding-bottom:18px;margin-bottom:8px}
+.est-top h3{font-size:1.5rem;font-stretch:88%;font-weight:800}
+.est-top span{font-family:var(--head);font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;background:var(--cyan);padding:6px 10px}
+.erow{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 0;border-bottom:1px solid #2c5560}
+.erow b{display:block;font-family:var(--head);font-weight:700;font-size:1.02rem}
+.erow small{color:#93b0b6;font-size:.82rem}
+.step{display:flex;align-items:center;border:1.5px solid #3b6a75}
+.step button{width:40px;height:40px;background:none;border:0;color:var(--lime);font-size:1.3rem;font-weight:700;cursor:pointer}
+.step button:hover{background:#1c4550}
+.step output{width:44px;text-align:center;font-family:var(--head);font-weight:800;font-size:1.15rem}
+.tog{width:56px;height:30px;border-radius:30px;background:#3b6a75;border:0;position:relative;cursor:pointer;transition:.25s;flex:none}
+.tog::after{content:"";position:absolute;top:4px;left:4px;width:22px;height:22px;border-radius:50%;background:#fff;transition:.25s}
+.tog.on{background:var(--lime)}.tog.on::after{left:30px;background:var(--ink)}
+.etotal{display:flex;justify-content:space-between;align-items:flex-end;padding:24px 0 6px}
+.etotal p{font-size:.86rem;color:#93b0b6;line-height:1.4}
+.etotal p s{color:#fff}
+.etotal .tv{font-family:var(--head);font-weight:900;font-stretch:72%;font-size:4.6rem;line-height:.85;color:var(--lime)}
+.etotal .tv sup{font-size:1.6rem;vertical-align:top;position:relative;top:8px}
+.etotal .tv small{font-size:.95rem;font-stretch:100%;color:#fff;font-weight:600;margin-left:4px}
+.efine{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:.78rem;color:#93b0b6;margin:16px 0 24px}
+.efine span::before{content:"* ";color:var(--cyan)}
+.est .btn{width:100%;justify-content:center}
 
-/* before after */
+
 .ba{background:var(--ink);color:#fff;padding:110px 0;position:relative;overflow:hidden}
 .ba .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:70px;align-items:center}
 .ba .eyebrow{color:var(--lime)}
@@ -262,10 +279,9 @@ footer a:hover{color:var(--lime)}
   nav.main.open{display:flex;position:absolute;top:84px;left:0;right:0;background:#fff;flex-direction:column;align-items:flex-start;padding:20px;gap:6px;border-bottom:1px solid var(--line)}
   nav.main.open .dd-menu{position:static;opacity:1;visibility:visible;transform:none;box-shadow:none;border:0;padding:0 0 0 14px}
   .hero .wrap,.ba .wrap,.svc .wrap,.about .wrap,.book .wrap,.process .top{grid-template-columns:1fr}
-  .hero .wrap{gap:80px}
-  .coupon{left:16px}
-  .spec-grid{grid-template-columns:1fr}
-  .checklist{border-right:0;border-bottom:1.5px solid var(--ink)}
+  .hero .wrap{gap:50px}
+  .spec .wrap{grid-template-columns:1fr;gap:50px}
+  .mosaic{height:520px}
   .duct{grid-template-columns:1fr;gap:34px;padding-left:10px}
   .duct::before,.duct .flow{top:0;bottom:0;left:54px;right:auto;width:22px;height:auto;background:linear-gradient(90deg,#e9eff0,#cdd9db 45%,#eef3f3);border-block:0;border-inline:1.5px solid #9fb2b5}
   .duct .flow::after{display:none}
@@ -289,10 +305,16 @@ footer a:hover{color:var(--lime)}
   .hdr-cta .btn{display:none}
   .hero .wrap{padding:50px 0 90px}
   .facts{gap:22px}
-  .coupon{width:auto;right:10px;left:10px;bottom:-60px}
-  .truck-tag{display:none}
-  .checklist{grid-template-columns:1fr;padding:28px 22px}
-  .receipt{padding:28px 22px}
+  .mosaic{height:auto;grid-template-columns:1fr 1fr;grid-template-rows:240px 190px}
+  .m-truck{grid-row:auto;grid-column:1/-1}
+  .m-price{padding:18px}
+  .m-price .pv{font-size:2.9rem}
+  .m-price .pv small{display:block;margin:6px 0 0;font-size:.8rem}
+  .m-price .pw{flex-wrap:wrap;gap:6px}
+  .m-truck figcaption,.m-work figcaption{font-size:.58rem;padding:7px 10px}
+  .grille{display:none}
+  .est{padding:28px 20px;box-shadow:12px 12px 0 var(--lime)}
+  .etotal .tv{font-size:3.6rem}
   .band .wrap{grid-template-columns:1fr;gap:22px}
   .panel .ptxt{margin:-30px 0 0 14px;padding:24px}
   .badges{grid-template-columns:1fr 1fr;gap:10px}
@@ -370,16 +392,15 @@ footer a:hover{color:var(--lime)}
       </div>
     </div>
     <div class="hero-visual rv">
-      <div class="truck"><img src="images/revive-truck.jpg" alt="Revive Furnace Cleaning truck-mounted cleaning unit at a Calgary home"></div>
-      <div class="truck-tag">Truck-mounted equipment</div>
-      <div class="coupon">
-        <div class="ctag">Residential special</div>
-        <h3>Furnace &amp; Duct Cleaning</h3>
-        <div class="price-row">
-          <div class="now"><sup>$</sup>149</div>
-          <div class="was">Reg. price <s>$199</s><br>+ GST<br><span class="save">Save $50</span></div>
-        </div>
-        <p>Includes 1 furnace, 10 vents, a multi-point inspection and a free standard-size furnace filter.</p>
+      <div class="grille"></div>
+      <div class="mosaic">
+        <figure class="m-truck"><img src="images/revive-truck.jpg" alt="Revive Furnace Cleaning truck-mounted cleaning unit at a Calgary home"><figcaption>Truck-mounted equipment</figcaption></figure>
+        <figure class="m-work"><img src="images/furnace-clean.jpg" alt="Technician using whip technology inside furnace ductwork"><figcaption>Whip technology</figcaption></figure>
+        <a href="#pricing" class="m-price">
+          <span class="pt">Furnace &amp; duct cleaning</span>
+          <span class="pv"><sup>$</sup>149<small>+ GST</small></span>
+          <span class="pw">Reg. <s>$199</s> <b>Save $50</b></span>
+        </a>
       </div>
     </div>
   </div>
@@ -398,38 +419,37 @@ footer a:hover{color:var(--lime)}
 
 <section class="spec" id="pricing">
   <div class="wrap">
-    <div class="spec-head rv">
-      <div>
-        <span class="eyebrow">Furnace and Duct Cleaning Calgary</span>
-        <h2>Everything included in your <span>$149</span> clean</h2>
+    <div class="rv">
+      <span class="eyebrow">Furnace and Duct Cleaning Calgary</span>
+      <h2>One clean, <span>one clear price</span></h2>
+      <p class="intro">Residential furnace and duct cleaning for <b>$149 + GST</b> (regular price $199). Covers 1 furnace and 10 vents, a multi-point inspection and a free standard-size furnace filter, done by our own licensed and insured technicians.</p>
+      <p class="inc-title">Included with every clean</p>
+      <div class="inc">
+        <span>Knowledgeable technicians</span>
+        <span>Truck-mounted cleaning equipment</span>
+        <span>Furnace and duct cleaning</span>
+        <span>Multi-point furnace inspection</span>
+        <span>Whip technology</span>
+        <span>Free furnace filter</span>
+        <span>Improved indoor air quality</span>
+        <span>Regular maintenance for optimal performance</span>
+        <span>Comprehensive liability insurance</span>
       </div>
-      <p>One clear price for a full residential furnace and duct cleaning, done by our own licensed and insured technicians.</p>
     </div>
-    <div class="spec-grid rv">
-      <div class="checklist">
-        <h4><span>Included with every clean</span><span>Checklist</span></h4>
-        <div class="ck"><i></i>Knowledgeable technicians</div>
-        <div class="ck"><i></i>Truck-mounted cleaning equipment</div>
-        <div class="ck"><i></i>Furnace and duct cleaning</div>
-        <div class="ck"><i></i>Multi-point furnace inspection</div>
-        <div class="ck"><i></i>Whip technology</div>
-        <div class="ck"><i></i>Free furnace filter</div>
-        <div class="ck"><i></i>Improved indoor air quality</div>
-        <div class="ck"><i></i>Regular maintenance for optimal performance</div>
-        <div class="ck"><i></i>Comprehensive liability insurance</div>
+    <div class="est rv" id="est">
+      <div class="est-top"><h3>Price your clean</h3><span>Save $50</span></div>
+      <div class="erow"><div><b>Furnaces</b><small>Additional furnace $59</small></div>
+        <div class="step"><button type="button" data-k="f" data-d="-1" aria-label="Fewer furnaces">&minus;</button><output id="fv">1</output><button type="button" data-k="f" data-d="1" aria-label="More furnaces">+</button></div></div>
+      <div class="erow"><div><b>Vents</b><small>10 included, additional vents $10 each</small></div>
+        <div class="step"><button type="button" data-k="v" data-d="-1" aria-label="Fewer vents">&minus;</button><output id="vv">10</output><button type="button" data-k="v" data-d="1" aria-label="More vents">+</button></div></div>
+      <div class="erow"><div><b>High efficiency / AC bypass</b><small>$40</small></div>
+        <button type="button" class="tog" id="he" aria-pressed="false" aria-label="High efficiency or AC bypass"></button></div>
+      <div class="etotal">
+        <p>Your estimate<br>Reg. <s id="reg">$199</s></p>
+        <div class="tv"><sup>$</sup><span id="tot">149</span><small>+ GST</small></div>
       </div>
-      <div class="receipt">
-        <h4><span>Pricing</span><span>+ GST</span></h4>
-        <div class="line"><span>1 furnace + 10 vents</span><span class="dots"></span><b><s style="color:#8aa0a4;font-size:.9rem;margin-right:6px">$199</s>$149</b></div>
-        <div class="line"><span>Additional furnace</span><span class="dots"></span><b>$59</b></div>
-        <div class="line"><span>Additional vents</span><span class="dots"></span><b>$10 ea</b></div>
-        <div class="line"><span>High efficiency / AC bypass</span><span class="dots"></span><b>$40</b></div>
-        <div class="line total"><span>Minimum service call</span><span class="dots"></span><b>$149</b></div>
-        <div class="fine">
-          <span>All vents must be cleaned.</span>
-          <span>Some restrictions apply.</span>
-        </div>
-      </div>
+      <div class="efine"><span>All vents must be cleaned</span><span>Minimum service call $149</span><span>Some restrictions apply</span></div>
+      <a href="#book" class="btn btn-lime" id="estBook">Book this clean</a>
     </div>
   </div>
 </section>
@@ -494,7 +514,7 @@ footer a:hover{color:var(--lime)}
     </div>
     <div class="rv">
       <div class="panel active" id="p1">
-        <div class="pimg split"><img src="images/duct-before.jpg" alt="Dirty duct before cleaning"><img src="images/duct-after.jpg" alt="Clean duct after cleaning"></div>
+        <div class="pimg"><img src="images/furnace-clean.jpg" alt="Technician cleaning furnace ductwork with whip technology"></div>
         <div class="ptxt">
           <h3>Furnace &amp; Duct Cleaning</h3>
           <p>Accountable, knowledgeable furnace and duct cleaning, no matter who made your furnace. Includes a multi-point inspection and a free standard-size filter.</p>
@@ -502,7 +522,7 @@ footer a:hover{color:var(--lime)}
         </div>
       </div>
       <div class="panel" id="p2">
-        <div class="pimg"><img src="images/dryer-vent.jpg" alt="Rigid and flexible dryer vent ducts full of lint"></div>
+        <div class="pimg"><img src="images/dryer-vent.jpg" alt="Technician pulling lint out of a clogged dryer vent"></div>
         <div class="ptxt">
           <h3>Dryer Vent Cleaning</h3>
           <p>Dryer vents clogged with debris suffer from a reduction in airflow. A professional dryer vent cleaning will help you save money.</p>
@@ -510,7 +530,7 @@ footer a:hover{color:var(--lime)}
         </div>
       </div>
       <div class="panel" id="p3">
-        <div class="pimg"><img src="images/insulation.jpg" alt="Attic insulation being measured before removal"></div>
+        <div class="pimg"><img src="images/insulation.jpg" alt="Truck-mounted vacuum removing old attic insulation"></div>
         <div class="ptxt">
           <h3>Insulation Removal</h3>
           <p>Our truck-mounted vacuums have the power to handle even the most difficult insulation removal jobs, whether the insulation is wet, fire damaged or damaged by smoke.</p>
@@ -637,9 +657,15 @@ document.getElementById('yr').textContent=new Date().getFullYear();
 // reveal
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
 document.querySelectorAll('.rv').forEach(el=>io.observe(el));
-const sp=document.querySelector('.spec');
-new IntersectionObserver((es,o)=>es.forEach(e=>{if(e.isIntersecting){sp.classList.add('on');o.disconnect()}}),{threshold:.3}).observe(sp);
-const st=document.createElement('style');st.textContent=[...Array(9)].map((_,i)=>`.checklist .ck:nth-of-type(${i+1}) i::after{transition-delay:${(i*.1).toFixed(1)}s}`).join('');document.head.appendChild(st);
+// estimator
+const E={f:1,v:10,h:false};
+function calc(){const t=149+(E.f-1)*59+Math.max(0,E.v-10)*10+(E.h?40:0);
+ document.getElementById('fv').textContent=E.f;document.getElementById('vv').textContent=E.v;
+ document.getElementById('tot').textContent=t;document.getElementById('reg').textContent='$'+(t+50);
+ document.getElementById('ms').value=`${E.f} furnace(s), ${E.v} vents${E.h?', high efficiency / AC bypass':''}. Estimate $${t} + GST`;}
+document.querySelectorAll('.step button').forEach(b=>b.addEventListener('click',()=>{const k=b.dataset.k,d=+b.dataset.d;
+ E[k]=Math.max(k==='f'?1:1,Math.min(k==='f'?5:60,E[k]+d));calc();}));
+document.getElementById('he').addEventListener('click',e=>{E.h=!E.h;e.currentTarget.classList.toggle('on',E.h);e.currentTarget.setAttribute('aria-pressed',E.h);calc();});
 // compare slider
 const cmp=document.getElementById('cmp'),aw=cmp.querySelector('.after-wrap'),hd=cmp.querySelector('.handle');
 let drag=false;
